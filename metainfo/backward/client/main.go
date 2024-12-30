@@ -21,6 +21,7 @@ import (
 	"time"
 
 	"github.com/bytedance/gopkg/cloud/metainfo"
+
 	"github.com/cloudwego/kitex-examples/kitex_gen/api"
 	"github.com/cloudwego/kitex-examples/kitex_gen/api/echo"
 	"github.com/cloudwego/kitex/client"
@@ -56,6 +57,16 @@ func main() {
 				klog.Infof("something-from-server:%s", val)
 			} else {
 				klog.Warn("`something-from-server` not exist")
+			}
+
+			// receive all the metainfo from server side
+			m := metainfo.RecvAllBackwardValues(ctx)
+			if m != nil {
+				for key, value := range m {
+					klog.Infof("key: %s, value: %s", key, value)
+				}
+			} else {
+				klog.Warn("No metainfo received")
 			}
 		}
 		time.Sleep(time.Second)

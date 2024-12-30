@@ -1,0 +1,29 @@
+version: 2
+updates:
+  - package-ecosystem: gomod
+    schedule:
+      interval: weekly
+    allow:
+      - dependency-name: github.com/cloudwego/kitex
+    groups:
+      kitex-dependencies:
+        patterns:
+          - github.com/cloudwego/kitex
+    directories:
+      - /
+      - /basic/example_shop
+      - /bizdemo/easy_note
+      - /bizdemo/kitex_ent
+      - /bizdemo/kitex_gorm
+      - /bizdemo/kitex_gorm_gen
+      - /bizdemo/kitex_swagger_gen
+      - /bizdemo/kitex_zorm
+      - /generic-protobuf/jsonpb-client
+      - /grpc_multi_service/client
+      - /grpc_multi_service/server
+      - /istio
+      - /kitex/protobuf
+      - /kitex/template
+      - /kitex/thrift
+      - /proxyless
+      - /seata_go
